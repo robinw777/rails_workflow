@@ -21,7 +21,7 @@ module RailsWorkflow
     def create_process!
       process = process_class.create(template: template)
 
-      process.update_attributes(title: title, status: Process::NOT_STARTED)
+      process.update(title: title, status: Process::NOT_STARTED)
       process.create_context(data: context, parent: process)
 
       build_independent_operations process
