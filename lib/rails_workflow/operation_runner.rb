@@ -5,7 +5,7 @@ module RailsWorkflow
   class OperationRunner
     attr_accessor :operation
     delegate :can_start?, :completed?, :completable?, :update_attribute,
-             :update_attributes, :is_background, :child_process, :context,
+             :update, :is_background, :child_process, :context,
              to: :operation
 
     def self.start(operations)
@@ -63,7 +63,7 @@ module RailsWorkflow
       return unless completable?
 
       context&.save
-      update_attributes(
+      update(
         status: to_status,
         completed_at: Time.zone.now
       )
