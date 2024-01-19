@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'securerandom'
 
 module RailsWorkflow::Uuid
   extend ActiveSupport::Concern
@@ -8,6 +9,6 @@ module RailsWorkflow::Uuid
   end
 
   def generate_guid
-    self.uuid = Guid.new.to_s if uuid.blank?
+    self.uuid = SecureRandom.uuid if uuid.blank?
   end
 end
