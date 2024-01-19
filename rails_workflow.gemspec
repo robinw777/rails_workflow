@@ -26,7 +26,6 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'slim-rails'
   s.add_runtime_dependency 'will_paginate'
   s.add_runtime_dependency 'draper'
-  s.add_runtime_dependency 'guid'
   s.add_runtime_dependency 'active_model_serializers'
   s.add_runtime_dependency 'jquery-rails'
 
