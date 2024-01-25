@@ -5,7 +5,10 @@ module RailsWorkflow
     belongs_to :parent, polymorphic: true
     attr_accessor :data
 
-    serialize :body, JSON
+    # Rails 7.0 / we are using jsonb column:
+    #   ActiveRecord::AttributeMethods::Serialization::ColumnNotSerializableError - Column `body` of type ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Jsonb does not support `serialize` feature.
+    #   Usually it means that you are trying to use `serialize` on a column that already implements serialization natively.
+    # serialize :body, JSON
 
     before_save :serialize_data
     after_find :init_data
