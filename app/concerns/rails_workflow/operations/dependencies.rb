@@ -17,7 +17,7 @@ module RailsWorkflow
       extend ActiveSupport::Concern
 
       included do
-        serialize :dependencies, JSON
+        serialize :dependencies, coder: JSON
 
         # def dependencies=(dependencies)
         #   write_attribute(:dependencies, dependencies.to_json.to_s)

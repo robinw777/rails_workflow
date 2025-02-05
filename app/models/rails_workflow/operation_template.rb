@@ -8,7 +8,7 @@ module RailsWorkflow
     # TODO: move to separate UserOperationTemplate
     include OperationTemplates::Assignments
 
-    serialize :source, JSON
+    serialize :source, coder: JSON
 
     belongs_to :process_template, class_name: 'RailsWorkflow::ProcessTemplate'
     belongs_to :child_process, class_name: 'RailsWorkflow::ProcessTemplate', required: false

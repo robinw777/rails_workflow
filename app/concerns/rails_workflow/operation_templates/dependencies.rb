@@ -9,7 +9,7 @@ module RailsWorkflow
       extend ActiveSupport::Concern
 
       included do
-        serialize :dependencies, JSON
+        serialize :dependencies, coder: JSON
         scope :independent_only, lambda {
           where(
             "dependencies is null or dependencies = 'null' or dependencies='[]'"
